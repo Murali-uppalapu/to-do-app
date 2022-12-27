@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<script src="https://kit.fontawesome.com/127558fcb3.js" crossorigin="anonymous"></script>
+	<style type="text/css">
+		*{
+			margin: 0%;
+		}
+		.fa-square-xmark{
+			width: 10%;
+		}
+		body{
+			background-image: url("C:/Users/pbsc/Pictures/img3.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			text-align: center;
+			margin-top: 15%;
+		}
+		.div1{
+			border: 0.5px solid black;
+			width: 35%;
+			margin: auto;
+			background-color: white;
+			margin-left: 13%;
+
+		}
+		#text{
+			
+			border-radius: 3%;
+			background-color: lightgray;
+			color: black;
+			margin-top: 2%;
+			margin-left: 2%;
+
+		}
+		.submit{
+			background-color: blue;
+			color: white;
+			border-radius:30px;
+			width: 19%;
+			margin-top: 2.5%;
+			margin-left: 3%;
+		}
+		.submit:hover{
+			background-color: yellow;
+			color: darkred;
+			
+		}
+		.listtype{
+			list-style: none;
+		}
+		#span{
+			color: red;
+		}
+	</style>
+
+</head>
+<body>
+<div class="div1">			
+	
+<input id="text" type="text" placeholder ="Entertext">
+<ul>
+	
+</ul>
+<button class="submit" onclick="submit()">submit</button>
+<script type="text/javascript">
+		function submit(){
+			let text=document.getElementById("text").value,todolist=[]
+			if(text===""){
+				alert("Please enter a value")
+			}
+			else{
+				add(text)
+			}
+			
+			document.getElementById("text").value=""
+		}
+		function add(newValue){
+			let ul=document.querySelector("ul")
+			console.log(ul)
+			let li=document.createElement("li");
+			const d=new Date();
+			const h=d.getHours();
+			const m=d.getMinutes();
+			li.innerHTML=`
+			<span id="span">${newValue}
+			</span>
+			<span>${h}:${m}</span>
+			<i class="fa-solid fa-square-xmark"></i>`
+			li.classList.add("listtype")
+			ul.appendChild(li)
+		}
+
+
+	</script>
+</div>
+</body>
+</html>
